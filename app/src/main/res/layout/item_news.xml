@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="news"
+            type="com.example.dharmav10.domain.NewsProperty" />
+
+        <variable
+            name="clickListener"
+            type="com.example.dharmav10.adapters.ArticleAdapter.NewsClickListener" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/light_grey"
+        android:contentDescription="@string/content_description"
+        android:onClick="@{() -> clickListener.onClick(news)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/thumnail"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:background="@color/cardview_shadow_start_color"
+                android:contentDescription="@string/content_image"
+                android:scaleType="center"
+                app:imageUrl="@{news.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/content_title"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{news.title}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/thumnail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/thumnail" />
+
+            <TextView
+                android:id="@+id/tv_source"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/content_author"
+                android:text="@{news.pubDate}"
+                android:maxLines="1"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintEnd_toStartOf="@+id/thumnail"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

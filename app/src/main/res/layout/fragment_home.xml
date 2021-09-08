@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.dharmav10.home.HomeViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.HomeFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/top_hight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Toolbar"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+<!--                <fragment-->
+<!--                    android:id="@+id/fragment_weather"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="170dp"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/scrollView"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/top_hight"-->
+<!--                    tools:listitem="@layout/fragment_weather" />-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_general"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/scrollView"
+                    app:layout_constraintTop_toBottomOf="@+id/top_hight" />
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintBottom_toTopOf="@id/rv_regular"
+                    app:layout_constraintTop_toBottomOf="@id/rv_general">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/ctgr_kalmyk"
+                            style="@style/ActiveButton"
+                            android:text="Калмыкия" />
+
+                        <Button
+                            android:id="@+id/ctgr_world"
+                            style="@style/NoActiveButton"
+                            android:text="Мир" />
+
+                        <Button
+                            android:id="@+id/ctgr_russia"
+                            style="@style/NoActiveButton"
+                            android:text="Россия" />
+
+                        <Button
+                            android:id="@+id/ctgr_entertainment"
+                            style="@style/NoActiveButton"
+                            android:text="Развлечение" />
+
+                        <Button
+                            android:id="@+id/ctgr_dharma"
+                            style="@style/NoActiveButton"
+                            android:text="Дхарма" />
+
+                        <Button
+                            android:id="@+id/ctgr_sport"
+                            style="@style/NoActiveButton"
+                            android:text="Спорт" />
+
+                        <Button
+                            android:id="@+id/ctgr_economy"
+                            style="@style/NoActiveButton"
+                            android:text="Экономика" />
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollView"
+                    tools:listitem="@layout/item_news" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

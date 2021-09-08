@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Dharma v1.0</string>
+    <string name="content_description">Очень много контента. Очень много контента. Очень много контента. Очень много контента. Очень много контента. Очень много контента. Очень много контента. Очень много контента.</string>
+    <string name="content_author">Elisey Zoro</string>
+    <string name="content_data">7 ноября 2021</string>
+    <string name="content_image">Здесь картинка</string>
+    <string name="content_title">Заголовок</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
